@@ -1,4 +1,7 @@
 import { Redirect, Route } from 'react-router-dom';
+import {useEffect, useState} from 'react';
+import { Geolocation } from '@capacitor/geolocation';
+
 import {
   IonApp,
   IonIcon,
@@ -11,9 +14,9 @@ import {
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import { ellipse, square, triangle } from 'ionicons/icons';
-import Tab1 from './pages/Tab1';
-import Tab2 from './pages/Tab2';
-import Tab3 from './pages/Tab3';
+import TravelTab from './pages/TravelTab';
+import UploadTab from './pages/UploadTab';
+import ResultsTab from './pages/ResultsTab';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -36,41 +39,61 @@ import './theme/variables.css';
 
 setupIonicReact();
 
-const App: React.FC = () => (
+const App: React.FC = () => {
+  const [response, setResponse] = useState({});
+
+  const [latitude, setLatitude] = useState(0);
+  const [longitude, setLongitude] = useState(0);
+
+    const getLocation = async () => {
+    await Geolocation.checkPermissions();
+    const position = await Geolocation.getCurrentPosition();
+    return position
+};
+  useEffect(() => {
+    const getLoc = async () => {
+      const location = await getLocation()
+      setLatitude(location.coords.latitude)
+      setLongitude(location.coords.longitude)
+    }
+    getLoc()
+  }, [])
+
+  return(
   <IonApp>
     <IonReactRouter>
       <IonTabs>
         <IonRouterOutlet>
-          <Route exact path="/tab1">
-            <Tab1 />
+          <Route exact path="/questions">
+            <TravelTab setResponse={setResponse} latitude={latitude} longitude={longitude} />
           </Route>
-          <Route exact path="/tab2">
-            <Tab2 />
+          <Route exact path="/pictures">
+            <UploadTab setResponse={setResponse} latitude={latitude} longitude={longitude} />
           </Route>
-          <Route path="/tab3">
-            <Tab3 />
+          <Route path="/results">
+            <ResultsTab response={response}/>
           </Route>
           <Route exact path="/">
-            <Redirect to="/tab1" />
+            <Redirect to="/questions" />
           </Route>
         </IonRouterOutlet>
         <IonTabBar slot="bottom">
-          <IonTabButton tab="tab1" href="/tab1">
+          <IonTabButton tab="questions" href="/questions">
             <IonIcon aria-hidden="true" icon={triangle} />
-            <IonLabel>Tab 1</IonLabel>
+            <IonLabel>Questions</IonLabel>
           </IonTabButton>
-          <IonTabButton tab="tab2" href="/tab2">
+          <IonTabButton tab="pictures" href="/pictures">
             <IonIcon aria-hidden="true" icon={ellipse} />
-            <IonLabel>Tab 2</IonLabel>
+            <IonLabel>Pictures</IonLabel>
           </IonTabButton>
-          <IonTabButton tab="tab3" href="/tab3">
+          <IonTabButton tab="results" href="/results">
             <IonIcon aria-hidden="true" icon={square} />
-            <IonLabel>Tab 3</IonLabel>
+            <IonLabel>Results</IonLabel>
           </IonTabButton>
         </IonTabBar>
       </IonTabs>
     </IonReactRouter>
   </IonApp>
-);
+)};
 
 export default App;

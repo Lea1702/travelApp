@@ -1,0 +1,25 @@
+.header-results {
+  background-color: #e0f2ea;
+  font-size: larger;
+  font-weight: 600;
+  border-bottom: #b2dfdb 1px solid;
+}
+
+.hour-activity {
+  font-size: 18px;
+  font-weight: 600;
+  padding-bottom: 10px;
+}
+
+.activity-container {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.activity-label {
+  margin-bottom: 5px;
+}
+
+.activity-icon {
+  margin-right: 5px;
+}

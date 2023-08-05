@@ -1,0 +1,135 @@
+.form-group {
+  margin-bottom: 20px;
+}
+
+body {
+  background-color: #fff;
+}
+
+#background-content {
+  background-color: #fff;
+}
+
+.generated-question {
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+.submit-button {
+  display: flex;
+  justify-content: center;
+}
+
+.submit-button ion-button {
+  --background: #4c956c;
+  --background-hover: #2c6e49;
+  --color: #fff;
+  --border-radius: 30px;
+  --padding-start: 40px;
+  --padding-end: 40px;
+  --box-shadow: none;
+}
+
+.generated-question-container {
+  background-color: #f8f8f8;
+  border-radius: 8px;
+  padding: 10px;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.modal-content {
+  --height: auto;
+  --max-height: 60%;
+  --width: auto;
+  --max-width: 90%;
+  --border-radius: 15px;
+  --box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  --overflow: auto;
+}
+
+.ok-button-container {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  /* padding: 1em; */
+  bottom: 5px;
+  right: 10px;
+}
+
+.ion-datetime {
+  --background: #fff;
+  --padding-start: 0;
+  --padding-end: 0;
+}
+
+.questions_header {
+  padding: 26px;
+  background-color: #ffc9b9;
+}
+
+.ion-delegate-host {
+  padding-bottom: 65px;
+}
+ion-radio::part(container) {
+  width: 22px;
+  height: 22px;
+
+  border-radius: 8px;
+  border: 2px solid #ddd;
+}
+
+ion-radio::part(mark) {
+  background: none;
+  transition: none;
+  transform: none;
+  border-radius: 0;
+}
+
+ion-radio.radio-checked::part(container) {
+  background: #ffc9b9;
+  border-color: transparent;
+}
+
+ion-radio.radio-checked::part(mark) {
+  width: 6px;
+  height: 10px;
+
+  border-width: 0px 2px 2px 0px;
+  border-style: solid;
+  border-color: #fff;
+
+  transform: rotate(45deg);
+}
+
+.show-modal {
+  box-shadow: 0 0 0 50vmax rgba(0, 0, 0, 0.5);
+  height: 453px;
+  width: 370px;
+  border-radius: 5px;
+  margin-top: 150px;
+  margin-left: 10px;
+  border: 0.3px solid grey;
+}
+
+.ion-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%; /* or any size you want */
+  height: 50%; /* or any size you want */
+  max-width: none;
+  max-height: none;
+}
+
+.travel-loading {
+  margin-left: 44%;
+  margin-top: 18px;
+}
+
+.tree-image {
+  width: 50%;
+  position: absolute;
+  bottom: 0px;
+}
