@@ -77,6 +77,7 @@ const TravelTab: React.FC<ContainerProps>  = ({latitude, longitude, setResponse}
 
     try {
       const trips = await axios.get(`${api}trip/${question}`);
+      console.log('trips : ', trips)
       console.log('trips.data : ', trips.data)
       const res=JSON.parse(trips.data)
       console.log('res : ',res)

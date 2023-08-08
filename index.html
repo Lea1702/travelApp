@@ -3,9 +3,9 @@
   <head>
     <meta charset="utf-8" />
     <title>Ionic App</title>
-    
+
     <base href="/" />
-    
+
     <meta name="color-scheme" content="light dark" />
     <meta
       name="viewport"
@@ -13,11 +13,11 @@
     />
     <meta name="format-detection" content="telephone=no" />
     <meta name="msapplication-tap-highlight" content="no" />
-    
+
     <link rel="manifest" href="/manifest.json" />
-    
+
     <link rel="shortcut icon" type="image/png" href="/favicon.png" />
-    
+
     <!-- add to homescreen for ios -->
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-title" content="Ionic App" />
@@ -25,6 +25,29 @@
   </head>
   <body>
     <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <script type="module" src="/src/main.tsx">
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-app.js";
+      import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-analytics.js";
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      const firebaseConfig = {
+        apiKey: "AIzaSyCNFI9ESrsDeANJ-M2l0hyDGCkMkd5VG1Q",
+        authDomain: "travelapp-24980.firebaseapp.com",
+        projectId: "travelapp-24980",
+        storageBucket: "travelapp-24980.appspot.com",
+        messagingSenderId: "833512962856",
+        appId: "1:833512962856:web:f76c492fb14f6ffff16e1d",
+        measurementId: "G-TBX3NGGBMM"
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const analytics = getAnalytics(app);
+    </script>
+    <!-- <script type="module" src="/src/main.tsx"></script> -->
   </body>
 </html>

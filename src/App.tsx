@@ -50,6 +50,9 @@ const App: React.FC = () => {
     const position = await Geolocation.getCurrentPosition();
     return position
 };
+
+
+
   useEffect(() => {
     const getLoc = async () => {
       const location = await getLocation()
