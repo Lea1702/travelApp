@@ -68,6 +68,7 @@ const TravelTab: React.FC<ContainerProps>  = ({latitude, longitude, setResponse}
 
   const handleFormSubmit = async () => {
     setIsLoading(true)
+
     const question = `Plan a ${kind} trip within ${distance} kilometers from the current location. The current location's latitude is ${latitude} and longitude is ${longitude}. We would like to walk about ${walkPreference} kilometers.
      Date of travel: ${date}. Return Date: ${returnDate}. Possible sport activities you can suggest: ${sport}.
      Our eating preferences : ${foodPreferences}.`     + "Please structure the answer as a JavaScript dictionary, with each day containing an array of activities. The structure should include the following details for each activity: time, activity, address(address of the activity), and description. Give me only the js dictionary, without any opening phrase or finishing phrase"
@@ -76,7 +77,7 @@ const TravelTab: React.FC<ContainerProps>  = ({latitude, longitude, setResponse}
     console.log('question : ', question)
 
     try {
-      const trips = await axios.get(`${api}trip/${question}`);
+      const trips = await axios.get(`http://localhost:5000/trip/${question}`);
       console.log('trips : ', trips)
       console.log('trips.data : ', trips.data)
       const res=JSON.parse(trips.data)

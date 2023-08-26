@@ -3,6 +3,9 @@
   font-size: larger;
   font-weight: 600;
   border-bottom: #b2dfdb 1px solid;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .hour-activity {

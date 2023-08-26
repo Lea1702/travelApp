@@ -13,7 +13,7 @@ import {
   setupIonicReact
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import { ellipse, square, triangle } from 'ionicons/icons';
+import { micCircle, helpCircle, aperture, listCircle} from 'ionicons/icons';
 import TravelTab from './pages/TravelTab';
 import UploadTab from './pages/UploadTab';
 import ResultsTab from './pages/ResultsTab';
@@ -36,6 +36,7 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
+import SpeechTab from './pages/SpeechTab';
 
 setupIonicReact();
 
@@ -73,6 +74,9 @@ const App: React.FC = () => {
           <Route exact path="/pictures">
             <UploadTab setResponse={setResponse} latitude={latitude} longitude={longitude} />
           </Route>
+          <Route exact path="/speech">
+            <SpeechTab setResponse={setResponse} latitude={latitude} longitude={longitude} />
+          </Route>
           <Route path="/results">
             <ResultsTab response={response}/>
           </Route>
@@ -82,15 +86,19 @@ const App: React.FC = () => {
         </IonRouterOutlet>
         <IonTabBar slot="bottom">
           <IonTabButton tab="questions" href="/questions">
-            <IonIcon aria-hidden="true" icon={triangle} />
+            <IonIcon aria-hidden="true" icon={helpCircle} />
             <IonLabel>Questions</IonLabel>
           </IonTabButton>
           <IonTabButton tab="pictures" href="/pictures">
-            <IonIcon aria-hidden="true" icon={ellipse} />
+            <IonIcon aria-hidden="true" icon={aperture} />
             <IonLabel>Pictures</IonLabel>
           </IonTabButton>
+          <IonTabButton tab="speech" href="/speech">
+            <IonIcon aria-hidden="true" icon={micCircle} />
+            <IonLabel>Speech</IonLabel>
+          </IonTabButton>
           <IonTabButton tab="results" href="/results">
-            <IonIcon aria-hidden="true" icon={square} />
+            <IonIcon aria-hidden="true" icon={listCircle} />
             <IonLabel>Results</IonLabel>
           </IonTabButton>
         </IonTabBar>

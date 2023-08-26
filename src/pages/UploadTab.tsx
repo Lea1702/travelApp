@@ -7,7 +7,6 @@ import { Camera, CameraResultType, Photo, CameraSource } from '@capacitor/camera
 import axios from 'axios'
 import { useHistory } from 'react-router-dom';
 import ReactLoading from "react-loading";
-import {api} from '../config.js'
 
 interface ContainerProps {
   latitude: Number;
@@ -59,7 +58,7 @@ const UploadTab: React.FC<ContainerProps>  = ({latitude, longitude, setResponse}
     console.log('formData : ', formData)
 
     try {
-      const response = await axios.post(`${api}upload_endpoint`, formData, {
+      const response = await axios.post(`http://localhost:5000/upload_endpoint`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
@@ -70,7 +69,7 @@ const UploadTab: React.FC<ContainerProps>  = ({latitude, longitude, setResponse}
       console.log('generatedQuestion : ', generatedQuestion)
 
       try {
-        const trips = await axios.get(`${api}trip/${generatedQuestion}`);
+        const trips = await axios.get(`http://localhost:5000/trip/${generatedQuestion}`);
         console.log('trips : ', trips)
         const res=JSON.parse(trips.data)
         console.log('res : ',res)
